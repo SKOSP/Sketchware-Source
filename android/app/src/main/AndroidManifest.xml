@@ -1,0 +1,243 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="150" android:versionName="3.10.0" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.besome.sketch" platformBuildVersionCode="28" platformBuildVersionName="9">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
+	<supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+	<uses-permission android:name="com.android.vending.BILLING"/>
+	<uses-permission android:name="com.android.vending.WAKE_LOCK"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+	<uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+	<application android:theme="resourceId:0x7f0f0007" android:label="Sketchware" android:icon="res/mipmap-xxxhdpi-v4/sketch_app_icon.png" android:name="com.besome.sketch.SketchApplication" android:allowBackup="true" android:largeHeap="true" android:supportsRtl="false" android:usesCleartextTraffic="true" android:resizeableActivity="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:isSplitRequired="true">
+		<meta-data android:name="com.google.android.gms.version" android:value="12451000"/>
+		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="255022168522663"/>
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-7684160946124871~7302238434"/>
+		<provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.besome.sketch.provider" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="res/xml/provider_paths.xml"/>
+		</provider>
+		<receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true" android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+			</intent-filter>
+		</receiver>
+		<service android:name="com.besome.sketch.fcm.SketchFirebaseMessagingService">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
+		<service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+		<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver" android:enabled="true" android:exported="true">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER"/>
+			</intent-filter>
+		</receiver>
+		<activity android:name="com.besome.sketch.DeepLinkActivity" android:exported="true" android:taskAffinity="" android:launchMode="singleTop">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<data android:scheme="http" android:host="sketchware.io" android:pathPrefix="/purchase.jsp"/>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<data android:scheme="http" android:host="sketchware.io" android:pathPrefix="/deeplink.jsp"/>
+			</intent-filter>
+		</activity>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.InitActivity" android:exported="true" android:configChanges="0x480" android:hardwareAccelerated="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.acc.GoogleSignActivity"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.acc.LoginActivity"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.acc.MyPageActivity"/>
+		<activity android:name="com.besome.sketch.acc.MyPageSettingsActivity" android:configChanges="0x480" android:windowSoftInputMode="0x20"/>
+		<activity android:name="com.besome.sketch.acc.ProfileActivity"/>
+		<activity android:name="com.besome.sketch.acc.ServiceOutActivity"/>
+		<activity android:name="com.besome.sketch.acc.UserGradeActivity"/>
+		<activity android:theme="resourceId:0x7f0f01a0" android:name="com.besome.sketch.ads.AdsAdmobActivity"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.builder.BuildActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.bill.InAppActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.bill.SubscribeActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.bill.PurchaseCheckActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.bill.OrdersActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.bill.ThanksActivity"/>
+		<activity android:name="com.besome.sketch.common.SrcViewerActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.common.ImportIconActivity" android:configChanges="0x480" android:windowSoftInputMode="0x2"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.common.FullscreenImageActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.help.BlogWebActivity"/>
+		<activity android:name="com.besome.sketch.help.LicenseActivity"/>
+		<activity android:name="com.besome.sketch.help.ProgramInfoActivity"/>
+		<activity android:name="com.besome.sketch.help.SystemSettingActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.help.SystemInfoActivity"/>
+		<activity android:name="com.besome.sketch.help.NoticeActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.LogicEditorActivity" android:configChanges="0x480" android:windowSoftInputMode="0x22" android:hardwareAccelerated="false"/>
+		<activity android:name="com.besome.sketch.editor.PropertyActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.makeblock.MakeBlockActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.projects.MyProjectSettingActivity" android:windowSoftInputMode="0x12"/>
+		<activity android:name="com.besome.sketch.tools.CollectErrorActivity"/>
+		<activity android:name="com.besome.sketch.tools.CompileLogActivity"/>
+		<activity android:name="com.besome.sketch.tools.ExportApkActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tools.NewKeyStoreActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.export.ExportProjectActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.export.ManageExportUrlActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.project.ShareProjectActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.shared.project.SharedProjectDetailActivity" android:exported="true" android:configChanges="0x480" android:windowSoftInputMode="0x17" android:parentActivityName="com.besome.sketch.MainActivity">
+			<intent-filter>
+				<action android:name="ProjectReview"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:scheme="sketchwareapp" android:host="show_project"/>
+			</intent-filter>
+		</activity>
+		<activity android:name="com.besome.sketch.shared.project.SharedProjectShowAllActivity"/>
+		<activity android:name="com.besome.sketch.shared.project.ShareConsentActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.GuideActivity"/>
+		<activity android:name="com.besome.sketch.design.DesignActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.MainActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f01a0" android:name="com.google.android.gms.ads.AdActivity" android:exported="false" android:configChanges="0xfb0"/>
+		<activity android:name="com.besome.sketch.language.LanguageActivity"/>
+		<activity android:name="com.besome.sketch.language.MySharedLanguageActivity"/>
+		<activity android:name="com.besome.sketch.language.LanguageUploadActivity"/>
+		<activity android:name="com.besome.sketch.language.LanguageDetailActivity"/>
+		<activity android:name="com.besome.sketch.language.LanguageModifyActivity"/>
+		<activity android:name="com.besome.sketch.language.LanguageShowAllActivity"/>
+		<activity android:name="com.besome.sketch.editor.manage.view.ManageViewActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.sound.ManageSoundActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.sound.ManageSoundImportActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.image.ManageImageActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.image.ManageImageImportActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.font.ManageFontActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.font.ManageFontImportActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.library.ManageLibraryActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.ManageCollectionActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.ShowWidgetCollectionActivity" android:configChanges="0x480" android:windowSoftInputMode="0x22"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.event.AddEventActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.component.ComponentAddActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.ViewSelectorActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.view.AddViewActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.view.AddCustomViewActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.image.AddImageActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.sound.AddSoundActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.font.AddFontActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.tools.SignGuideActivity" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.ShowBlockCollectionActivity" android:configChanges="0x480" android:windowSoftInputMode="0x22" android:hardwareAccelerated="false"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.ShowMoreBlockCollectionActivity" android:configChanges="0x480" android:windowSoftInputMode="0x22" android:hardwareAccelerated="false"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.image.AddImageCollectionActivity" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.sound.AddSoundCollectionActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.font.AddFontCollectionActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.publish.GooglePublishExceptionDialogActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.component.ShowFilePickerTypesActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:name="com.besome.sketch.publish.PublishActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.ManagePublishActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.account.NoAccountActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.account.PublishAccountSettingActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.OneFinalStepActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.publishsteps.PublishPreviewDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.publishsteps.PublishCompleteActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.publish.PublishMailCompleteActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.editor.manage.library.admob.AdmobActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016b" android:name="com.besome.sketch.editor.manage.library.firebase.FirebaseActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.library.firebase.ManageFirebaseActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.library.admob.ManageAdmobActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.library.compat.ManageCompatActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.editor.manage.library.googlemap.ManageGoogleMapActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.competition.CompetitionDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.competition.CompetitionSubmitActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.competition.CompetitionTermsActivity" android:configChanges="0x480"/>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.editor.manage.view.PresetSettingActivity" android:configChanges="0x480" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="resourceId:0x7f0f0169" android:name="com.besome.sketch.VideoGuideActivity"/>
+		<activity android:name="com.besome.sketch.shared.views.SharedViewsListActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.views.SharedViewsDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.views.ShareViewActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.views.SharedViewPreviewActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.blocks.SharedBlocksListActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.blocks.SharedBlocksDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.blocks.ShareBlockActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.blocks.SharedBlockPreviewActivity" android:configChanges="0x480" android:hardwareAccelerated="false"/>
+		<activity android:name="com.besome.sketch.shared.SharedSearchCollectionListActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tutorial.TutorialShowAllActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tutorial.TutorialRequestPublishActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tutorial.TutorialManagementActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tutorial.TutorialUploadActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.moreblocks.SharedMoreBlocksListActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.moreblocks.SharedMoreBlocksDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.moreblocks.ShareMoreBlockActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.moreblocks.SharedMoreBlockPreviewActivity" android:configChanges="0x480" android:hardwareAccelerated="false"/>
+		<activity android:name="com.besome.sketch.tools.SignApkActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.IncludedCollectionDetailActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.shared.SharedCollectionBookmarkListActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.SearchRecentActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.SearchResultActivity" android:configChanges="0x480"/>
+		<activity android:name="com.besome.sketch.tools.ImportProjectActivity" android:configChanges="0x480">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:scheme="http" android:host="import.sketchware.io"/>
+			</intent-filter>
+			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.besome.sketch.MainActivity"/>
+		</activity>
+		<activity android:theme="resourceId:0x7f0f016a" android:name="com.besome.sketch.SketchwareForInoPopupActivity" android:windowSoftInputMode="0x12"/>
+		<activity android:theme="@android:style/Theme_Translucent_NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+		<service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true"/>
+		<service android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+		<activity android:theme="resourceId:0x7f0f016d" android:name="com.google.android.gms.appinvite.PreviewActivity" android:exported="true">
+			<intent-filter>
+				<action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false">
+			<intent-filter android:priority="-500">
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
+		<service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+		</service>
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+			</intent-filter>
+		</receiver>
+		<activity android:theme="@android:style/Theme_Translucent_NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+		<provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.besome.sketch.firebaseinitprovider" android:initOrder="100"/>
+		<provider android:name="com.google.android.gms.ads.MobileAdsInitProvider" android:exported="false" android:authorities="com.besome.sketch.mobileadsinitprovider" android:initOrder="100"/>
+		<receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+		<receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER"/>
+			</intent-filter>
+		</receiver>
+		<service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+		<service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+		<activity android:theme="@android:style/Theme_Translucent_NoTitleBar" android:name="com.facebook.ads.AudienceNetworkActivity" android:exported="false" android:configChanges="0x4a0"/>
+		<activity android:theme="@android:style/Theme_Translucent_NoTitleBar" android:name="com.facebook.ads.internal.ipc.RemoteANActivity" android:exported="false" android:process=":adnw" android:configChanges="0x4a0"/>
+		<service android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService" android:exported="false"/>
+		<service android:name="com.facebook.ads.internal.ipc.AdsMessengerService" android:exported="false" android:process=":adnw"/>
+		<provider android:name="com.facebook.ads.AudienceNetworkContentProvider" android:exported="false" android:authorities="com.besome.sketch.AudienceNetworkContentProvider"/>
+		<meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+		<meta-data android:name="com.android.vending.splits" android:value="res/xml/splits0.xml"/>
+		<meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+	</application>
+</manifest>
