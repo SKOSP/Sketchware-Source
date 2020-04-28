@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@android:id/background" android:drawable="@drawable/ISDUMMY_AE_28" />
+	<item android:id="@android:id/secondaryProgress" android:drawable="@drawable/ISDUMMY_AE_2b" />
+	<item android:id="@android:id/progress">
+		<bitmap android:src="@drawable/ISDUMMY_AE_28" android:tileModeX="repeat" />
+	</item>
+</layer-list>
