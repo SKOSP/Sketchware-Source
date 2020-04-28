@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<defaultsMap>
+	<entry>
+		<key>tutorial_key		</key>
+		<value>none		</value>
+	</entry>
+	<entry>
+		<key>is_ads_enabled		</key>
+		<value>disable		</value>
+	</entry>
+	<entry>
+		<key>ads_popup_guide		</key>
+		<value>enable		</value>
+	</entry>
+</defaultsMap>
